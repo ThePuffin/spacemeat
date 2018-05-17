@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-export default class Example extends React.Component {
+export default class Connexion extends React.Component {
   render() {
     return (
       <Form inline>
