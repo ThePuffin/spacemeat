@@ -42,7 +42,7 @@ class DisplayListe extends Component {
         return (
             <Container fluid={true}>
                 <Row>
-                    <Persons/>
+                    <Liste/>
                 </Row>
 
             </Container>
