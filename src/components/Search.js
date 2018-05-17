@@ -10,7 +10,12 @@ import {
     ButtonGroup,
     Container,
     Row,
-    Col
+    Col,
+    Carousel,
+    CarouselItem,
+    CarouselControl,
+    CarouselIndicators,
+    CarouselCaption
 } from 'reactstrap';
 import CheckBox from './CheckBox'
 
@@ -19,15 +24,16 @@ class Search extends Component {
         super(props);
         this.state = {
             api: [],
-            filtre: [4],
-            filtreApi: []
+            filtre: [],
+            filtreApi: [],
+            loaded: false
         };
         this.update = this
             .update
             .bind(this);
         this.tri = this
             .tri
-            .bind(this)
+            .bind(this);
     }
     componentWillMount() {
         axios
@@ -37,29 +43,30 @@ class Search extends Component {
                 this.setState({api})
             })
     }
-    tri() {
-        if (this.state.filtre.length !== 0) {
-            if (this.state.filtre.includes(1)) {
-                const filtreApi = this
-                    .state
-                    .api
-                    .filter(elt => elt.gender !== "female")
-                return this.setState({filtreApi})
-            } else {
-                const filtreApi = this
-                    .state
-                    .api
-                    .filter(elt => elt.gender !== "male")
-                return this.setState({filtreApi})
-            }
-        }
-    }
-    update(filtre) {
-        console.log(this.state.filtre);
-        this.setState({filtre})
 
-        this.tri()
-        console.log(this.state.filtre);
+    update(filtre) {
+        const papa = Promise.resolve(this.setState({filtre}))
+        return papa.then((value) => {
+            this.tri()
+        })
+
+    }
+    tri() {
+        if (this.state.filtre === 1) {
+            const filtreApi = this
+                .state
+                .api
+                .filter(elt => elt.gender === "male")
+            console.log(this.state.filtre);
+            return this.setState({filtreApi})
+        } else {
+            const filtreApi = this
+                .state
+                .api
+                .filter(elt => elt.gender === "female")
+            console.log(this.state.filtre);
+            return this.setState({filtreApi})
+        }
     }
 
     render() {
@@ -75,21 +82,23 @@ class Search extends Component {
                             ? this
                                 .state
                                 .filtreApi
-                                .map(elt => <Col sm="3">
-                                    <Card key={elt.id}>
-                                        <CardImg src={elt.image}/>
-                                        <CardText>
-                                            <Row>
-                                                <Col sm="6">{elt.name}
-                                                </Col>
+                                .map((elt, i) => <div key={i}>
+                                    <Col sm="3">
+                                        <Card>
+                                            <CardImg src={elt.image}/>
+                                            <CardText>
                                                 <Row>
-                                                    <Col sm="6"></Col>
+                                                    <Col sm="6">{elt.name}
+                                                    </Col>
+                                                    <Row>
+                                                        <Col sm="6"></Col>
+                                                    </Row>
                                                 </Row>
-                                            </Row>
-                                        </CardText>
-                                    </Card>
-                                </Col>)
-                            : console.log("lol")}
+                                            </CardText>
+                                        </Card>
+                                    </Col>
+                                </div>)
+                            : null}
                     </Row>
                 </Container>
             </div>
