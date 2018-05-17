@@ -1,8 +1,15 @@
-import React from "react";
-import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import React, {Component} from 'react';
 
-export default class Example extends React.Component {
-  render() {
-    return <p>Voilà une jolie homepage</p>;
-  }
+class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    render() {
+        return (
+            <h1>Home</h1>
+        );
+    }
 }
+
+export default Home;
