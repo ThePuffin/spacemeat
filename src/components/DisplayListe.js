@@ -1,24 +1,27 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Loader from "./Loader"
+import Liste from "./Liste"
 import {
     Card,
     CardImg,
     CardText,
     CardBody,
     CardTitle,
-    CardSubtitle,
     Button,
     Container,
     Row,
     Col
 } from 'reactstrap';
-
-class Liste extends Component {
+class DisplayListe extends Component {
     constructor(props) {
         super(props);
         this.state = {
             api: []
         };
+        this.liste = this
+            .liste
+            .bind(this)
     }
     componentWillMount() {
         axios
@@ -29,21 +32,23 @@ class Liste extends Component {
             })
     }
 
+    liste() {
+        if (this.state.api.length !== 0) {
+            const liste = this.state.api;
+            return liste
+        }
+    }
     render() {
-        return (this.state.api.length > 0 && this.state.api.map(elt => <Col sm="3">
-            <Card key={elt.id}>
-                <CardImg src={elt.image}/>
-                <CardText>
-                    <Row>
-                        <Col sm="6">{elt.name}
-                        </Col>
-                        <Row>
-                            <Col sm="6"></Col>
-                        </Row>
-                    </Row>
-                </CardText>
-            </Card>
-        </Col>))
+        return (
+            <Container fluid={true}>
+                <Row>
+                    <Persons/>
+                </Row>
+
+            </Container>
+
+        );
     }
 }
-export default Liste;
+
+export default DisplayListe;
