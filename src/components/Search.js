@@ -58,13 +58,14 @@ class Search extends Component {
                 .state
                 .api
                 .filter(elt => elt.gender === "female")
-
+            console.log(filtreApi);
             return this.setState({filtreApi})
         } else {
             const filtreApi = this
                 .state
                 .api
                 .filter(elt => elt.gender === "male")
+            console.log(console.log(filtreApi));
             this.setState({filtreApi})
         }
     }
@@ -74,7 +75,6 @@ class Search extends Component {
         });
     }
     render() {
-        console.log(this.state.compteur);
         const page1 = this
             .state
             .api
@@ -84,39 +84,27 @@ class Search extends Component {
                 eyeColor={elt.eyeColor}
                 image={elt.image}
                 count={this.augmenter}/>);
-        console.log(page1);
         const page2 = this
             .state
             .filtreApi
-            .map((elt, i) => { < CardPute
-                height = {
-                    elt.height
-                }
-                name = {
-                    elt.name
-                }
-                eyeColor = {
-                    elt.eyeColor
-                }
-                image = {
-                    elt.image
-                }
-                count = {
-                    this.augmenter
-                } />
-            });
+            .map((elt, i) => <CardPute
+                height={elt.height}
+                name={elt.name}
+                eyeColor={elt.eyeColor}
+                image={elt.image}
+                count={this.augmenter}/>);
 
         return page2.length > 0
             ? (
 
                 <div>
-                    <h1>Choose your meat</h1>
+                    <h1>Choose your meat's taste</h1>
                     <CheckBox maj={this.update} pression={this.tri}/> {page2[this.state.compteur]}
                 </div>
             )
             : (
                 <div>
-                    <h1>Choose your meat</h1>
+                    <h1>Choose your meat's taste</h1>
                     <CheckBox maj={this.update} pression={this.tri}/> {page1[this.state.compteur]}
                 </div>
             );

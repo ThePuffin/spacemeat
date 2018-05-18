@@ -32,7 +32,6 @@ class CheckBox extends Component {
     render() {
         return (
             <div>
-                <h5>Checkbox Buttons</h5>
                 <ButtonGroup>
                     <Button
                         color="primary"
