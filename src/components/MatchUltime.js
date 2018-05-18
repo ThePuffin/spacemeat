@@ -62,6 +62,9 @@ class MachUltime extends React.Component {
               src={"http://www.clker.com/cliparts/F/l/Y/n/b/k/lightning.svg"}
             />
           </Row>
+          <Link to="./tunnel" className="tunnel">
+            <Button className="ultimate">TUNNEL OF LOVE</Button>
+          </Link>
         </Container>
       );
     } else {

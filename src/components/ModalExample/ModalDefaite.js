@@ -50,12 +50,12 @@ class ModalExample extends React.Component {
           </ModalHeader>
 
           <ModalBody className="Head">
-            Désolé mais tu n'as pas matché avec ton crush
+            Tu viens de te manger un vent solaire MONSTRUEUX!
             <img src={Sorry} className="imagegif" alt="logo" />
           </ModalBody>
           <ModalFooter>
             <Button color="warning" href="/home" onClick={this.toggle}>
-              Même joueur joue encore !
+              Reviens chercher Amour !
             </Button>
           </ModalFooter>
         </Modal>
