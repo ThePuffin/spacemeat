@@ -1,18 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
-import {
-    Card,
-    CardImg,
-    CardText,
-    CardBody,
-    CardTitle,
-    CardSubtitle,
-    Button,
-    ButtonGroup,
-    Container,
-    Row,
-    Col
-} from 'reactstrap';
+import './Search.css'
 import CheckBox from './CheckBox'
 import CardPute from './CardPute'
 
@@ -98,13 +86,13 @@ class Search extends Component {
             ? (
 
                 <div>
-                    <h1>Choose your meat's taste</h1>
+                    <h1>Find your meat</h1>
                     <CheckBox maj={this.update} pression={this.tri}/> {page2[this.state.compteur]}
                 </div>
             )
             : (
                 <div>
-                    <h1>Choose your meat's taste</h1>
+                    <h1>Find your meat</h1>
                     <CheckBox maj={this.update} pression={this.tri}/> {page1[this.state.compteur]}
                 </div>
             );

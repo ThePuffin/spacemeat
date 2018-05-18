@@ -1,17 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import {
-    Card,
-    CardImg,
-    CardText,
-    CardBody,
-    CardTitle,
-    Button,
-    ButtonGroup,
-    Container,
-    Row,
-    Col
-} from 'reactstrap';
+import {Button, ButtonGroup} from 'reactstrap';
 
 class CheckBox extends Component {
     constructor(props) {
@@ -25,7 +13,7 @@ class CheckBox extends Component {
             .bind(this);
     }
     onRadioBtnClick(rSelected) {
-        const papa = Promise
+        return Promise
             .resolve(this.setState({rSelected}))
             .then(() => this.props.maj(this.state.rSelected))
     }
