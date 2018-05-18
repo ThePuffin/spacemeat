@@ -9,7 +9,7 @@ class BoutonNon extends Component {
   }
   render() {
     return (
-      <Link to="./search">
+      <Link to="./ModalNon">
         <Button color="success">Miam</Button>
       </Link>
     );

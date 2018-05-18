@@ -9,7 +9,7 @@ class BoutonOui extends Component {
   }
   render() {
     return (
-      <Link to="./Match">
+      <Link to="./ModalOui">
         <Button color="success">Miam</Button>
       </Link>
     );

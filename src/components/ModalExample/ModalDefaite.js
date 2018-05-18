@@ -54,7 +54,7 @@ class ModalExample extends React.Component {
             <img src={Sorry} className="imagegif" alt="logo" />
           </ModalBody>
           <ModalFooter>
-            <Button color="warning" href="/search" onClick={this.toggle}>
+            <Button color="warning" href="/home" onClick={this.toggle}>
               Même joueur joue encore !
             </Button>
           </ModalFooter>

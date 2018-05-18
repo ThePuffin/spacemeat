@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import LogoHeaders from "./classic.gif";
 import LogoHeader from "./wait.gif";
-import Victoire from "./victory.gif"
+import Victoire from "./victory.gif";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "./ModalExample.css";
 
@@ -25,18 +25,23 @@ class ModalExample extends React.Component {
   }
 
   toggle() {
-    this.random()
+    this.random();
     this.setState({
       modal: !this.state.modal
     });
   }
 
   render() {
-    return <div>
+    return (
+      <div>
         <Button color="danger" onClick={this.toggle}>
           {this.props.buttonLabel}
         </Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        <Modal
+          isOpen={this.state.modal}
+          toggle={this.toggle}
+          className={this.props.className}
+        >
           <ModalHeader toggle={this.toggle} className="Head">
             <img src={LogoHeader} className="gifpetit" alt="logo" />
             <img src={LogoHeaders} className="App-logo" alt="logo" />
@@ -44,18 +49,21 @@ class ModalExample extends React.Component {
           </ModalHeader>
 
           <ModalBody>
-            Félicitation, tu as choisit de matcher avec {this.state.name}, {this.state.firstname} tu as tiré le gros lot!
+            Félicitation, tu as choisit de matcher avec {this.state.name},{" "}
+            {this.state.firstname} tu as tiré le gros lot!
             <img src={Victoire} className="imgvictoire" alt="logo" />
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" href="/victory" onClick={this.toggle}>
+            <Button color="primary" href="/match" onClick={this.toggle}>
               Oh yeah !
-            </Button> <Button color="warning" href="/search" onClick={this.toggle}>
+            </Button>{" "}
+            <Button color="warning" href="/home" onClick={this.toggle}>
               Oups I did it again !
             </Button>
           </ModalFooter>
         </Modal>
-      </div>;
+      </div>
+    );
   }
 }
 
