@@ -8,6 +8,7 @@ import tunnel from "./lovetunnel/love.gif";
 import tunnel2 from "./lovetunnel/lovelove.gif";
 import tunnel3 from "./lovetunnel/lovelovelove.gif";
 import feeling from "./lovetunnel/feeling.gif"
+import tunnel4 from "./lovetunnel/lovelovelovelove.gif"
 import "./Tunnel.css";
 
 // import "./loader.css";
@@ -49,7 +50,7 @@ class Tunnel extends Component {
       return <center>
           <div className="waitgif" />
           <br />
-  
+
           <img src={tunnel} className="imgg" alt="logo" />
         </center>; // render null when app is not ready
     } else if (loading === 2) {
@@ -69,7 +70,6 @@ class Tunnel extends Component {
           <div className="waitgif" />
           <br />
 
-          
           <img src={tunnel2} className="imgg" alt="logo" />
         </center>; // render null when app is not ready
     } else if (loading === 4) {
@@ -89,8 +89,7 @@ class Tunnel extends Component {
           <div className="waitgif" />
           <br />
 
-         
-          <img src={tunnel3} className="imgg" alt="logo" />
+          <img src={tunnel4} className="imgg" alt="logo" />
         </center>; // render null when app is not ready
     } else if (loading === 6) {
       this.changed();
@@ -99,7 +98,6 @@ class Tunnel extends Component {
           <div className="waitgif" />
           <br />
 
-       
           <img src={feeling} className="imgg" alt="logo" />
         </center>; // render null when app is not ready
     } else if (loading === 7) {
@@ -109,8 +107,16 @@ class Tunnel extends Component {
           <div className="waitgif" />
           <br />
 
-          
           <img src={oups} className="imgg" alt="logo" />
+        </center>; // render null when app is not ready
+    } else if (loading === 8) {
+      this.changed();
+      // if your component doesn't have to wait for an async action, remove this block
+      return <center>
+          <div className="waitgif" />
+          <h1>SPACE MEAT</h1>
+          <img src={trap} className="imgg" alt="logo" />
+          <h1>IS FOREVER</h1>
         </center>; // render null when app is not ready
     }
 
@@ -119,7 +125,7 @@ class Tunnel extends Component {
         <br />
 
         <h1>SPACE MEAT</h1>
-        <img src={trap} className="imgg" alt="logo" />
+        <img src={tunnel2} className="imgg" alt="logo" />
         <h1>IS FOREVER</h1>
       </center>; // render null when app is not ready
   }
