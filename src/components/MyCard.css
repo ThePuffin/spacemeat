@@ -1,11 +1,11 @@
-h5.card-title {
+.jambon h5.card-title {
   font-family: "Space Mono", monospace;
   font-size: 1.4em;
   color: rgb(255, 6, 101);
   font-weight: bold;
   text-align: center;
 }
-h6.card-subtitle {
+.jambon h6.card-subtitle {
   font-family: "Space Mono", monospace;
   font-size: 0.7em;
   color: rgb(158, 9, 66);
