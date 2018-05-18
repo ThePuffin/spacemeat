@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, BrowserRouter, Route } from "react";
 import axios from "axios";
 import {
   Button,
@@ -15,6 +15,8 @@ import {
 import { Link } from "react-router-dom";
 import "./Home.css";
 import Badge from "./Badge";
+import BoutonOui from "./boutons/BoutonOui";
+import BoutonNon from "./boutons/BoutonNon";
 
 class Home extends Component {
   constructor(props) {
@@ -67,6 +69,10 @@ class Home extends Component {
     this.setState({ compteur });
   }
 
+  miam(event) {
+    return this.state.matching === 1 ? <BoutonOui /> : <BoutonNon />;
+  }
+
   render() {
     const page1 = this.state.api[this.state.pretendants[this.state.compteur]];
 
@@ -88,7 +94,7 @@ class Home extends Component {
             <Button color="danger" onClick={e => this.augmenter(e)}>
               Beurk
             </Button>
-            <Button color="success">Miam</Button>
+            {this.miam()}
           </CardBody>
         </Card>
       </div>
