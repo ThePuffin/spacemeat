@@ -114,15 +114,14 @@ class Tunnel extends Component {
         </center>; // render null when app is not ready
     }
 
-    return (
-      <center>
+    return <center>
         <div className="waitgif" />
         <br />
 
         <h1>SPACE MEAT</h1>
         <img src={trap} className="imgg" alt="logo" />
-      </center>
-    ); // render null when app is not ready
+        <h1>IS FOREVER</h1>
+      </center>; // render null when app is not ready
   }
 }
 
