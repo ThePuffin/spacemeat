@@ -12,6 +12,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import Badge from "./Badge";
 
@@ -80,7 +81,9 @@ class Home extends Component {
             <Button color="danger" onClick={e => this.augmenter(e)}>
               Beurk
             </Button>
-            <Button color="success">Miam</Button>
+            <Link to="./MatchUltime">
+              <Button color="success">Miam</Button>
+            </Link>
           </CardBody>
         </Card>
       </div>
