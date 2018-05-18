@@ -1,8 +1,25 @@
 Head {
-  background-color: black !important;
-  background-image: 
+    background-color: black !important;
+    object-position: center;
 }
 
-img {
-  align-content: center;
+.gifpetit {
+    height: 18vw;
+    width: 18vw;
+    background-color: black;
+}
+
+.imagegif {
+    height: auto;
+    width: 80vw;
+}
+
+.imgvictoire {
+    width: 80vw;
+    height: auto;
+}
+
+.imgg{
+    width : 100vw;
+    height: auto;
 }

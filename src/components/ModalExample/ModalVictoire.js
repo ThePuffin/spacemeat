@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import LogoHeader from "./classic.gif";
+import LogoHeaders from "./classic.gif";
+import LogoHeader from "./wait.gif";
+import Victoire from "./victory.gif"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import "./ModalExample.css";
 
@@ -7,7 +9,7 @@ class ModalExample extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false,
+      modal: true,
       match: 1,
       name: "Anakin",
       firstname: "Skywalker"
@@ -17,8 +19,8 @@ class ModalExample extends React.Component {
     this.random = this.random.bind(this);
   }
   random() {
-    const matched = Math.random();
-    console.log(Math.round(matched));
+    const matched = Math.round(Math.random());
+    console.log(matched);
     this.setState({ modal: Math.round(matched) });
   }
 
@@ -36,16 +38,20 @@ class ModalExample extends React.Component {
         </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle} className="Head">
-            <img src={LogoHeader} className="App-logo" alt="logo" />
+            <img src={LogoHeader} className="gifpetit" alt="logo" />
+            <img src={LogoHeaders} className="App-logo" alt="logo" />
+            <img src={LogoHeader} className="gifpetit" alt="logo" />
           </ModalHeader>
+
           <ModalBody>
             Félicitation, tu as choisit de matcher avec {this.state.name}, {this.state.firstname} tu as tiré le gros lot!
+            <img src={Victoire} className="imgvictoire" alt="logo" />
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" href="/home" onClick={this.toggle}>
-              Accepter ce match
-            </Button> <Button color="secondary" href="/search" onClick={this.toggle}>
-              Hop hop hop je me suis trompé
+            <Button color="primary" href="/victory" onClick={this.toggle}>
+              Oh yeah !
+            </Button> <Button color="warning" href="/search" onClick={this.toggle}>
+              Oups I did it again !
             </Button>
           </ModalFooter>
         </Modal>

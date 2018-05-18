@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import ModalExample from "./ModalExample/ModalExample"
+import ModalVictoire from "./ModalExample/ModalVictoire"
+import ModalDefaite from "./ModalExample/ModalDefaite";
+import Fond from "./ModalExample/fond.png";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -9,7 +11,13 @@ class Modalpage extends Component {
     this.state = {};
   }
   render() {
-    return <ModalExample buttonLabel="ok"/>;
+  
+    return( 
+      <div>
+      <img src={Fond} className="imgg" alt="logo" />,
+    <ModalDefaite buttonLabel="Nope" />
+      </div>)
+    ;
   }
 }
 

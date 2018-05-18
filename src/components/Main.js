@@ -4,7 +4,10 @@ import Connexion from "./Connexion";
 import Home from "./Home";
 import MatchUltime from "./MatchUltime";
 import Search from "./Search";
-import Modalpage from "./Modal";
+import ModalOui from "./ModalOui";
+import ModalNon from "./ModalNon";
+import Havefun from "./ModalExample/Havefun";
+import Wait from "./ModalExample/wait"
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -18,7 +21,10 @@ const Main = () => (
       <Route path="/home" component={Home} />
       <Route path="/match" component={MatchUltime} />
       <Route path="/search" component={Search} />
-      <Route path="/modal" component={Modalpage} />
+      <Route path="/modalOui" component={ModalOui} />
+      <Route path="/modalNon" component={ModalNon} />
+      <Route path="/victory" component={Havefun} />
+      <Route path="/wait" component={Wait} />
     </Switch>
   </main>
 );
