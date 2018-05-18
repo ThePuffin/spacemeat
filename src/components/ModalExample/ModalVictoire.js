@@ -49,8 +49,8 @@ class ModalExample extends React.Component {
           </ModalHeader>
 
           <ModalBody>
-            Félicitation, tu as choisit de matcher avec {this.state.name},{" "}
-            {this.state.firstname} tu as tiré le gros lot!
+            Félicitation, on aurait pas cru possible que quelqu'un Flash sur
+            toi...
             <img src={Victoire} className="imgvictoire" alt="logo" />
           </ModalBody>
           <ModalFooter>

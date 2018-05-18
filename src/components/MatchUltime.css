@@ -1,4 +1,5 @@
 .pageMatch {
+  position: relative;
   background-image: url(./assets/background2.jpg);
   background-size: cover;
   height: 100vh;
@@ -15,4 +16,20 @@
 .card-body p.card-text {
   margin-top: 0.5rem;
   font-size: 0.9rem;
+}
+
+.eclair {
+  position: absolute;
+  top: 35vh;
+  left: 35vw;
+  height: 8rem;
+  width: auto;
+}
+
+.ultimate {
+  position: absolute;
+  background-color: pink !important;
+  color: red !important;
+  bottom: 6rem;
+  left: 6rem;
 }
