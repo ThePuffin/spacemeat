@@ -44,7 +44,7 @@ class InputLogin extends React.Component {
             placeholder="❤❤❤❤"
           />
         </FormGroup>
-        <Link to={`/home/${this.state.value}`}>Connexion</Link>
+        <Link to={`/home`}>Connexion</Link>
         {/* <h1>{this.state.value}</h1> */}
       </form>
     );

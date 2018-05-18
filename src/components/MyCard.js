@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Row,
+  Button,
   Col,
   Card,
   CardImg,
@@ -9,13 +10,10 @@ import {
   CardTitle,
   CardSubtitle
 } from "reactstrap";
-<<<<<<< HEAD
+import "./MyCard.css"
+
 
 const MyCard = ({ name, homeworld, species, imageUrl }) => (
-=======
-import "./MyCard.css";
-const MyCard = ({name, homeworld, cybernetics, imageUrl}) => (
->>>>>>> 185d7ed13c631d85080cba2961cde30e02e11225
   <div>
     <Card>
       <Row>
@@ -26,12 +24,8 @@ const MyCard = ({name, homeworld, cybernetics, imageUrl}) => (
       <CardBody>
         <CardTitle>{name}</CardTitle>
         <CardSubtitle>From : {homeworld}</CardSubtitle>
-<<<<<<< HEAD
         <CardText>{species}</CardText>
         <Button>Call</Button>
-=======
-        <CardText>{cybernetics}</CardText>
->>>>>>> 185d7ed13c631d85080cba2961cde30e02e11225
       </CardBody>
     </Card>
   </div>
