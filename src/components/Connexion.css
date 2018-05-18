@@ -1,0 +1,32 @@
+body: {
+  padding: 0;
+}
+.root {
+  position: relative;
+  padding: 0;
+}
+
+.pageBody {
+  background-image: url(./assets/background1.jpg);
+  background-size: cover;
+  height: 100vh;
+  background-position: bottom;
+}
+h1.logoHome {
+  font-family: "Bungee Inline", cursive;
+}
+
+h2.subtitleHome {
+  font-family: "Space Mono", monospace;
+  font-size: 1em;
+}
+
+.loginColor {
+  background-color: #e84393;
+}
+.loginColor:hover {
+  background-color: #ad2e6b;
+}
+.miniTitre {
+  display: none;
+}
