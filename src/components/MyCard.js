@@ -10,18 +10,12 @@ import {
   CardSubtitle
 } from "reactstrap";
 import "./MyCard.css";
-const MyCard = ({ name, homeworld, cybernetics, imageUrl }) => (
+const MyCard = ({name, homeworld, cybernetics, imageUrl}) => (
   <div>
     <Card>
       <Row>
-        <Col>
-          <CardImg
-            top
-            width="100%"
-            height="100%"
-            src={imageUrl}
-            alt="Card image cap"
-          />
+        <Col className="jambon">
+          <CardImg top width="100%" height="100%" src={imageUrl} alt="Card image cap"/>
         </Col>
       </Row>
       <CardBody>
