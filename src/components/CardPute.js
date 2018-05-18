@@ -12,12 +12,20 @@ import {
     Row,
     Col
 } from 'reactstrap';
+import Moment from 'react-moment';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 class CardPute extends Component {
     constructor(props) {
         super(props);
         this.state = {};
     }
-
+    notifError = () => {
+        const message = "Vous avez beurké"
+        this.toastId = toast(message, {autoClose: 3000})
+        return this.props.count
+    }
     render() {
         return (
             <Card>
@@ -33,10 +41,11 @@ class CardPute extends Component {
                     <CardSubtitle>
                         Poids: {this.props.mass}kg, Taille: {this.props.height}m, Magnifiques Yeux{" "} {this.props.eyeColor}
                     </CardSubtitle>
-                    <Button color="danger" onClick={this.props.count}>
-                        X
+                    <Button color="danger" onClick={this.notifError()}>
+                        Beurk
                     </Button>
-                    <Button color="success">V</Button>
+                    <Button color="success" onClick={this.props.count}>Miam</Button>
+                    <ToastContainer autoClose={8000}/>
                 </CardBody>
             </Card>
         );
