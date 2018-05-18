@@ -5,6 +5,10 @@ import match2 from "./assets/jaba.jpg";
 import MyCard from "./MyCard";
 
 export default class MatchUltime extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+}
   render() {
     return (
       <Container id="pageMatch" className="pageMatch">

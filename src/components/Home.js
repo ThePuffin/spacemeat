@@ -4,6 +4,10 @@ import "./Home.css";
 // import { Link } from "react-router-dom";
 
 export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+}
   render() {
     return (
       <Container id="pagePretendants">
@@ -18,4 +22,3 @@ export default class Home extends React.Component {
       </Container>
     );
   }
-}
