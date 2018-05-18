@@ -8,10 +8,29 @@ import {
     CardSubtitle,
     Button
 } from 'reactstrap';
+import BoutonOui from "./boutons/BoutonOui";
+import BoutonNon from "./boutons/BoutonNon";
 class CardPute extends Component {
     constructor(props) {
         super(props);
         this.state = {};
+        this.randomMatch = this
+            .randomMatch
+            .bind(this);
+        this.miam = this
+            .miam
+            .bind(this)
+    }
+    randomMatch() {
+        const matching = Math.round(Math.random());
+        this.setState({matching});
+        return this.props.count
+    }
+
+    miam() {
+        return this.state.matching === 1
+            ? <BoutonOui/>
+            : <BoutonNon/>;
     }
 
     render() {
@@ -29,10 +48,10 @@ class CardPute extends Component {
                     <CardSubtitle>
                         Poids: {this.props.mass}kg, Taille: {this.props.height}m, Magnifiques Yeux{" "} {this.props.eyeColor}
                     </CardSubtitle>
-                    <Button className="lol" color="danger" onClick={this.props.count}>
+                    <Button className="lol" color="danger" onClick={this.randomMatch}>
                         Beurk
                     </Button>
-                    <Button className="lol2" color="success" onClick={this.props.count}>Miam</Button>
+                    {this.miam()}
 
                 </CardBody>
             </Card>
