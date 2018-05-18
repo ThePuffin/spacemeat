@@ -1,27 +1,55 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink
+} from "reactstrap";
 
-// The Header creates links that can be used to navigate
-// between routes.
-const Header = () => (
-  <header>
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Connexion</Link>
-        </li>
-        <li>
-          <Link to="/home">Prétendants</Link>
-        </li>
-        <li>
-          <Link to="/match">Match Ultime</Link>
-        </li>
-        <li>
-          <Link to="/search">Trouver l'âme soeur</Link>
-        </li>
-      </ul>
-    </nav>
-  </header>
-);
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default Header;
+    this.toggleNavbar = this.toggleNavbar.bind(this);
+    this.state = {
+      collapsed: true
+    };
+  }
+
+  toggleNavbar() {
+    this.setState({
+      collapsed: !this.state.collapsed
+    });
+  }
+  render() {
+    return (
+      <div>
+        <Navbar color="faded" light>
+          <NavbarBrand href="/" className="mr-auto">
+            <span className="miniTitre">Space Meet</span>
+          </NavbarBrand>
+          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          <Collapse isOpen={!this.state.collapsed} navbar>
+            <Nav navbar>
+              <NavItem>
+                <NavLink href="./">Connexion</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="./home">Prétendants</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="./match">Match Ultime</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="./search">Trouver l'âme soeur</NavLink>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
+  }
+}

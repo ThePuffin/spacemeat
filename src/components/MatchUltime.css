@@ -1,0 +1,10 @@
+.pageMatch {
+  background-image: url(./assets/background2.jpg);
+  background-size: cover;
+  height: 100vh;
+  background-position: bottom;
+}
+.matchTitle {
+  font-family: "Bungee Inline", cursive;
+  color: yellow;
+}
