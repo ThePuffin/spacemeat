@@ -48,7 +48,7 @@ class Home extends Component {
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
       };
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 5; i++) {
         let id = idaleatoire(1, 87);
         tabDoublons.push(id);
       }
@@ -99,7 +99,11 @@ class Home extends Component {
         </Card>
       </div>
     ) : (
-      <div>{"hvuhz"}</div>
+      <Link to="./Machfinallyultime">
+        <Button className="ultimate">
+          Pas Terrible? Tente l'Ultimate Matching..
+        </Button>
+      </Link>
     );
   }
 }

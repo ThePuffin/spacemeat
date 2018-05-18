@@ -1,4 +1,5 @@
 .pageMatch {
+  position: relative;
   background-image: url(./assets/background2.jpg);
   background-size: cover;
   height: 100vh;
@@ -7,4 +8,20 @@
 .matchTitle {
   font-family: "Bungee Inline", cursive;
   color: yellow;
+}
+
+.eclair {
+  position: absolute;
+  top: 35vh;
+  left: 35vw;
+  height: 8rem;
+  width: auto;
+}
+
+.ultimate {
+  position: absolute;
+  background-color: pink !important;
+  color: red !important;
+  bottom: 6rem;
+  left: 6rem;
 }

@@ -6,7 +6,7 @@ import match2 from "./assets/jaba.jpg";
 import MyCard from "./MyCard";
 import axios from "axios";
 
-class MachUltime extends React.Component {
+class Machfinallyultime extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,17 +51,20 @@ class MachUltime extends React.Component {
             </Col>
             <Col className="mt-4" xs="6">
               <MyCard
-                name="Luke Skywalker"
-                homeworld="Tattooine"
-                cybernetics="Prosthetic right hand"
-                imageUrl="https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg"
+                name={this.state.api[profilMatch].name}
+                homeworld={this.state.api[profilMatch].homeworld}
+                species={this.state.api[profilMatch].species}
+                imageUrl={this.state.api[profilMatch].image}
               />
             </Col>
-            <img
-              className="eclair"
-              src={"http://www.clker.com/cliparts/F/l/Y/n/b/k/lightning.svg"}
-            />
           </Row>
+          <Link to="./tunnel" className="tunnel">
+            <Button className="ultimate">TUNNEL OF LOVE</Button>
+          </Link>
+          <img
+            className="eclair"
+            src={"http://www.clker.com/cliparts/F/l/Y/n/b/k/lightning.svg"}
+          />
         </Container>
       );
     } else {
@@ -69,4 +72,5 @@ class MachUltime extends React.Component {
     }
   }
 }
-export default MachUltime;
+
+export default Machfinallyultime;
