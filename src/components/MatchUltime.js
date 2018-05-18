@@ -1,14 +1,13 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import "./MatchUltime.css";
-import match2 from "./assets/jaba.jpg";
 import MyCard from "./MyCard";
 
 export default class MatchUltime extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-}
+  }
   render() {
     return (
       <Container id="pageMatch" className="pageMatch">
@@ -20,7 +19,7 @@ export default class MatchUltime extends React.Component {
         <Row>
           <Col className="mt-4" xs="6">
             <MyCard
-              name="Jabba The Hunt"
+              name="Jabba"
               homeworld="Tattooine"
               cybernetics="Prosthetic right hand"
               imageUrl="https://starwarsblog.starwars.com/wp-content/uploads/2016/06/jabba-the-hutt-portrait-tall.jpg"
@@ -28,7 +27,7 @@ export default class MatchUltime extends React.Component {
           </Col>
           <Col className="mt-4" xs="6">
             <MyCard
-              name="Luke Skywalker"
+              name="Luke"
               homeworld="Tattooine"
               cybernetics="Prosthetic right hand"
               imageUrl="https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg"

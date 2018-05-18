@@ -2,12 +2,24 @@ import React from "react";
 import { Container, Row, Col, Form, FormGroup, Label, Input } from "reactstrap";
 import "./Connexion.css";
 import { Link } from "react-router-dom";
+import InputLogin from "./InputLogin";
 
 export default class Connexion extends React.Component {
   render() {
     return (
       <Container id="pageConnexion" className="pageBody">
         <Row className="no-gutters">
+          <Col sm="12">
+            <h1 className="logoHome text-center mt-5">Space Meet</h1>
+            <h2 className="subtitleHome text-center mt-1 mb-5">
+              Fresh meat from the outer space
+            </h2>
+          </Col>
+          <Col className="mt-2 mr-3 ml-3">
+            <InputLogin />
+          </Col>
+        </Row>
+        {/* <Row className="no-gutters">
           <Col sm="12">
             <h1 className="logoHome text-center mt-5">Space Meet</h1>
             <h2 className="subtitleHome text-center mt-1 mb-5">
@@ -43,14 +55,14 @@ export default class Connexion extends React.Component {
               <p className="text-right">
                 <Link
                   className="btn loginColor mt-2 text-light ml-auto"
-                  to="./home"
+                  to="./home/12"
                 >
                   Connexion
                 </Link>
               </p>
             </Form>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     );
   }
