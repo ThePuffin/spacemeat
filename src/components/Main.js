@@ -6,6 +6,7 @@ import MatchUltime from "./MatchUltime";
 import Search from "./Search";
 import ModalOui from "./ModalOui";
 import ModalNon from "./ModalNon";
+import Wait from "./Wait";
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -21,6 +22,7 @@ const Main = () => (
       <Route path="/search" component={Search} />
       <Route path="/modalOui" component={ModalOui} />
       <Route path="/modalNon" component={ModalNon} />
+      <Route path="/wait" component={Wait} />
     </Switch>
   </main>
 );
