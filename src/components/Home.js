@@ -1,24 +1,89 @@
-import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import React, { Component } from "react";
+import axios from "axios";
+import {
+  Button,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+  Container,
+  Row,
+  Col
+} from "reactstrap";
 import "./Home.css";
-// import { Link } from "react-router-dom";
 
-export default class Home extends React.Component {
+class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
-}
+    this.state = {
+      api: [],
+      pretendants: [],
+      compteur: 0
+    };
+    this.augmenter = this.augmenter.bind(this);
+  }
+  componentWillMount() {
+    axios
+      .get(`https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json`)
+      .then(res => {
+        const api = res.data;
+        this.setState({ api });
+      });
+  }
+
+  componentDidMount() {
+    const generePretendants = () => {
+      let tabDoublons = [];
+      console.log(pretendants);
+      let idaleatoire = (min, max) => {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      };
+      for (let i = 0; i < 10; i++) {
+        let id = idaleatoire(1, 87);
+        tabDoublons.push(id);
+      }
+      let pretendants = [...new Set([...tabDoublons])];
+      this.setState({ pretendants });
+    };
+    generePretendants();
+  }
+
+  augmenter(event) {
+    let compteur = this.state.compteur + 1;
+    this.setState({ compteur });
+  }
   render() {
-    return (
-      <Container id="pagePretendants">
-        <Row className="no-gutters">
-          <Col sm="12">
-            <h1 className="logoHome text-center mt-5">Space Meet</h1>
-            <h2 className="subtitleHome text-center mt-1 mb-5">
-              Fresh meat from the outer space
-            </h2>
-          </Col>
-        </Row>
-      </Container>
+    const page1 = this.state.api[this.state.pretendants[this.state.compteur]];
+    console.log(page1);
+
+    return page1 !== undefined ? (
+      <div>
+        <h1>This is your local meat</h1>
+        <Card>
+          <CardImg top width="100%" src={page1.image} alt="Card image cap" />
+          <CardBody className="card_body">
+            <CardTitle className="prenom">
+              {page1.name.split(" ").shift()}
+            </CardTitle>
+            <CardSubtitle>
+              Poids: {page1.mass}kg, Taille: {page1.height}m, Magnifiques Yeux{" "}
+              {page1.eyeColor}
+            </CardSubtitle>
+            <Button color="danger" onClick={e => this.augmenter(e)}>
+              X
+            </Button>
+            <Button color="success">V</Button>
+          </CardBody>
+        </Card>
+      </div>
+    ) : (
+      <div>{"hvuhz"}</div>
     );
   }
+}
+
+export default Home;
