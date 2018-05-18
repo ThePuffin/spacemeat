@@ -10,7 +10,6 @@ import {
   CardSubtitle
 } from "reactstrap";
 import "./MyCard.css";
-
 const MyCard = ({ name, homeworld, cybernetics, imageUrl }) => (
   <div>
     <Card>
