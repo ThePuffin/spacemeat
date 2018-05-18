@@ -21,10 +21,29 @@ class CardPute extends Component {
         super(props);
         this.state = {};
     }
+    notifSuccess = () => {
+        const message = "Vous avez matché"
+        if (!toast.isActive(this.toastId)) {
+            this.toastId = toast(message, {autoClose: 3000})
+            return this
+                .props
+                .count()
+        }
+        return this
+            .props
+            .count()
+    }
     notifError = () => {
         const message = "Vous avez beurké"
-        this.toastId = toast(message, {autoClose: 3000})
-        return this.props.count
+        if (!toast.isActive(this.toastId)) {
+            this.toastId = toast(message, {autoClose: 3000})
+            return this
+                .props
+                .count()
+        }
+        return this
+            .props
+            .count()
     }
     render() {
         return (
@@ -41,11 +60,13 @@ class CardPute extends Component {
                     <CardSubtitle>
                         Poids: {this.props.mass}kg, Taille: {this.props.height}m, Magnifiques Yeux{" "} {this.props.eyeColor}
                     </CardSubtitle>
-                    <Button color="danger" onClick={this.notifError()}>
+                    <Button className="lol" color="danger" onClick={this.notifError}>
                         Beurk
                     </Button>
-                    <Button color="success" onClick={this.props.count}>Miam</Button>
-                    <ToastContainer autoClose={8000}/>
+                    <div>
+                        <Button color="success" onClick={this.notifSuccess}>Miam</Button>
+                        <ToastContainer/></div>
+
                 </CardBody>
             </Card>
         );

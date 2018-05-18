@@ -1,92 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import axios from "axios";
 import {
-<<<<<<< HEAD
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  Button,
-  ButtonGroup,
-  Container,
-  Row,
-  Col
-} from "reactstrap";
-import CheckBox from "./CheckBox";
-
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      api: [],
-      filtre: [4],
-      filtreApi: []
-    };
-    this.update = this.update.bind(this);
-    this.tri = this.tri.bind(this);
-  }
-  componentWillMount() {
-    axios
-      .get(`https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json`)
-      .then(res => {
-        const api = res.data;
-        this.setState({ api });
-      });
-  }
-  tri() {
-    if (this.state.filtre.length !== 0) {
-      if (this.state.filtre.includes(1)) {
-        const filtreApi = this.state.api.filter(elt => elt.gender !== "female");
-        return this.setState({ filtreApi });
-      } else {
-        const filtreApi = this.state.api.filter(elt => elt.gender !== "male");
-        return this.setState({ filtreApi });
-      }
-    }
-  }
-  update(filtre) {
-    console.log(this.state.filtre);
-    this.setState({ filtre });
-
-    this.tri();
-    console.log(this.state.filtre);
-  }
-
-  render() {
-    return (
-      <div>
-        <Container>
-          <h1>Search</h1>
-          <div>
-            <CheckBox maj={this.update} pression={this.tri} />
-          </div>
-          <Row>
-            {this.state.filtreApi.length !== 0
-              ? this.state.filtreApi.map(elt => (
-                  <Col sm="3">
-                    <Card key={elt.id}>
-                      <CardImg src={elt.image} />
-                      <CardText>
-                        <Row>
-                          <Col sm="6">{elt.name}</Col>
-                          <Row>
-                            <Col sm="6" />
-                          </Row>
-                        </Row>
-                      </CardText>
-                    </Card>
-                  </Col>
-                ))
-              : console.log("lol")}
-          </Row>
-        </Container>
-      </div>
-    );
-  }
-}
-
-=======
     Card,
     CardImg,
     CardText,
@@ -107,7 +21,7 @@ class Search extends Component {
         super(props);
         this.state = {
             api: [],
-            filtre: [],
+            filtre: {},
             filtreApi: [],
             compteur: 0
         };
@@ -130,30 +44,30 @@ class Search extends Component {
             })
     }
 
-    update(filtre) {
-        const papa = Promise.resolve(this.setState({filtre}))
-        return papa.then((value) => {
-            this.tri()
-        })
+    update(filt) {
+        this.setState({filtre: filt})
+        console.log(this.state.filtre);
+        return this.tri()
 
     }
     tri() {
+        /**
+ * Filters an array of objects with multiple criteria.
+ *
+ * @param  {Array}  array: the array to filter
+ * @param  {Object} filters: an object with the filter criteria as the property names
+ * @return {Array}
+ */
 
-        if (this.state.filtre !== 1) {
-            const filtreApi = this
-                .state
-                .api
-                .filter(elt => elt.gender === "female")
-            console.log(filtreApi);
-            return this.setState({filtreApi})
-        } else {
-            const filtreApi = this
-                .state
-                .api
-                .filter(elt => elt.gender === "male")
-            console.log(console.log(filtreApi));
-            this.setState({filtreApi})
+        function multiFilter(array, filters) {
+            const filterKeys = Object.keys(filters);
+            return array.filter((item) => {
+                return filterKeys.every(key => ! !~ filters[key].indexOf(item[key]));
+            });
         }
+        const filtreAp = multiFilter(this.state.api, this.state.filtre)
+        console.log(filtreAp);
+        return this.setState({filtreApi: filtreAp})
     }
     augmenter() {
         this.setState({
@@ -196,5 +110,4 @@ class Search extends Component {
             );
     }
 }
->>>>>>> 499a53e4d5d330ff498db52a13548ffd6458ce46
 export default Search;
