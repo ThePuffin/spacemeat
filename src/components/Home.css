@@ -7,3 +7,15 @@
   font-size: 2rem;
   margin: 0.5rem;
 }
+
+h1 {
+  text-align: center;
+}
+
+.detail {
+  margin-bottom: 1rem !important;
+}
+
+.identifiant {
+  text-align: center;
+}
