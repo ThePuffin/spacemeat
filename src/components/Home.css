@@ -19,3 +19,6 @@ h1 {
 .identifiant {
   text-align: center;
 }
+.cardBox {
+  position: relative;
+}

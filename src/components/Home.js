@@ -23,9 +23,10 @@ class Home extends Component {
       api: [],
       pretendants: [],
       compteur: 0,
-      nom: ""
+      matching: 0
     };
     this.augmenter = this.augmenter.bind(this);
+    this.randomMatch = this.randomMatch.bind(this);
   }
   componentWillMount() {
     axios
@@ -55,7 +56,13 @@ class Home extends Component {
     generePretendants();
   }
 
+  randomMatch() {
+    const matching = Math.round(Math.random());
+    this.setState({ matching });
+  }
+
   augmenter(event) {
+    this.randomMatch();
     let compteur = this.state.compteur + 1;
     this.setState({ compteur });
   }
@@ -64,7 +71,7 @@ class Home extends Component {
     const page1 = this.state.api[this.state.pretendants[this.state.compteur]];
 
     return page1 !== undefined ? (
-      <div>
+      <div className="cardBox">
         <Badge />
         <div className="identifiant">Yaa-yaah CHEWIE!</div>
         <h1>Here is your local meat</h1>
@@ -81,9 +88,7 @@ class Home extends Component {
             <Button color="danger" onClick={e => this.augmenter(e)}>
               Beurk
             </Button>
-            <Link to="./MatchUltime">
-              <Button color="success">Miam</Button>
-            </Link>
+            <Button color="success">Miam</Button>
           </CardBody>
         </Card>
       </div>
