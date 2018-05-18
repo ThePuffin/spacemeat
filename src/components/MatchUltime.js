@@ -2,13 +2,13 @@ import React from "react";
 import { Container, Row, Col, Button } from "reactstrap";
 import { Link } from "react-router-dom";
 import "./MatchUltime.css";
-import match2 from "./assets/jaba.jpg";
 import MyCard from "./MyCard";
 import axios from "axios";
 
 class MachUltime extends React.Component {
   constructor(props) {
     super(props);
+<<<<<<< HEAD
     this.state = {
       api: []
     };
@@ -60,6 +60,33 @@ class MachUltime extends React.Component {
             <img
               className="eclair"
               src={"http://www.clker.com/cliparts/F/l/Y/n/b/k/lightning.svg"}
+=======
+    this.state = {};
+  }
+  render() {
+    return (
+      <Container id="pageMatch" className="pageMatch">
+        <Row>
+          <Col>
+            <h1 className="text-center matchTitle pt-4">It's a Match !</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="mt-4" xs="6">
+            <MyCard
+              name="Jabba"
+              homeworld="Tattooine"
+              cybernetics="Prosthetic right hand"
+              imageUrl="https://starwarsblog.starwars.com/wp-content/uploads/2016/06/jabba-the-hutt-portrait-tall.jpg"
+            />
+          </Col>
+          <Col className="mt-4" xs="6">
+            <MyCard
+              name="Luke"
+              homeworld="Tattooine"
+              cybernetics="Prosthetic right hand"
+              imageUrl="https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg"
+>>>>>>> 185d7ed13c631d85080cba2961cde30e02e11225
             />
           </Row>
           <Link to="./tunnel" className="tunnel">
