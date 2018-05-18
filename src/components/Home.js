@@ -13,6 +13,7 @@ import {
   Col
 } from "reactstrap";
 import "./Home.css";
+import Badge from "./Badge";
 
 class Home extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class Home extends Component {
     this.state = {
       api: [],
       pretendants: [],
-      compteur: 0
+      compteur: 0,
+      nom: ""
     };
     this.augmenter = this.augmenter.bind(this);
   }
@@ -56,27 +58,29 @@ class Home extends Component {
     let compteur = this.state.compteur + 1;
     this.setState({ compteur });
   }
+
   render() {
     const page1 = this.state.api[this.state.pretendants[this.state.compteur]];
-    console.log(page1);
 
     return page1 !== undefined ? (
       <div>
-        <h1>This is your local meat</h1>
+        <Badge />
+        <div className="identifiant">Yaa-yaah CHEWIE!</div>
+        <h1>Here is your local meat</h1>
         <Card>
           <CardImg top width="100%" src={page1.image} alt="Card image cap" />
           <CardBody className="card_body">
             <CardTitle className="prenom">
               {page1.name.split(" ").shift()}
             </CardTitle>
-            <CardSubtitle>
-              Poids: {page1.mass}kg, Taille: {page1.height}m, Magnifiques Yeux{" "}
-              {page1.eyeColor}
+            <CardSubtitle className="detail">
+              Weight: {page1.mass}kg, Height: {page1.height}m, Wonderful{" "}
+              {page1.eyeColor} eyes
             </CardSubtitle>
             <Button color="danger" onClick={e => this.augmenter(e)}>
-              X
+              Beurk
             </Button>
-            <Button color="success">V</Button>
+            <Button color="success">Miam</Button>
           </CardBody>
         </Card>
       </div>
