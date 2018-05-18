@@ -1,0 +1,9 @@
+.card_body {
+  text-align: center;
+  padding-top: 0 !important;
+}
+
+.prenom {
+  font-size: 2rem;
+  margin: 0.5rem;
+}
