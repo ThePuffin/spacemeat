@@ -7,4 +7,12 @@
 .matchTitle {
   font-family: "Bungee Inline", cursive;
   color: yellow;
+  font-size: 4.5rem;
+}
+.card-body {
+  padding: 20px 10px 20px 10px;
+}
+.card-body p.card-text {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
 }
