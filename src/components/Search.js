@@ -6,6 +6,7 @@ import {
     CardText,
     CardBody,
     CardTitle,
+    CardSubtitle,
     Button,
     ButtonGroup,
     Container,
@@ -13,6 +14,7 @@ import {
     Col
 } from 'reactstrap';
 import CheckBox from './CheckBox'
+import CardPute from './CardPute'
 
 class Search extends Component {
     constructor(props) {
@@ -21,7 +23,7 @@ class Search extends Component {
             api: [],
             filtre: [],
             filtreApi: [],
-            loaded: false
+            compteur: 0
         };
         this.update = this
             .update
@@ -29,6 +31,9 @@ class Search extends Component {
         this.tri = this
             .tri
             .bind(this);
+        this.augmenter = this
+            .augmenter
+            .bind(this)
     }
     componentWillMount() {
         axios
@@ -47,37 +52,74 @@ class Search extends Component {
 
     }
     tri() {
-        if (this.state.filtre === 1) {
-            const filtreApi = this
-                .state
-                .api
-                .filter(elt => elt.gender === "male")
-            console.log(this.state.filtre);
-            return this.setState({filtreApi})
-        } else {
+
+        if (this.state.filtre !== 1) {
             const filtreApi = this
                 .state
                 .api
                 .filter(elt => elt.gender === "female")
 
+            return this.setState({filtreApi})
+        } else {
+            const filtreApi = this
+                .state
+                .api
+                .filter(elt => elt.gender === "male")
             this.setState({filtreApi})
         }
     }
-
+    augmenter() {
+        this.setState({
+            compteur: this.state.compteur + 1
+        });
+    }
     render() {
-        return (
-            <div>
-                <Container>
-                    <h1>Search</h1>
-                    <div>
-                        <CheckBox maj={this.update} pression={this.tri}/>
-                    </div>
+        console.log(this.state.compteur);
+        const page1 = this
+            .state
+            .api
+            .map((elt, i) => <CardPute
+                height={elt.height}
+                name={elt.name}
+                eyeColor={elt.eyeColor}
+                image={elt.image}
+                count={this.augmenter}/>);
+        console.log(page1);
+        const page2 = this
+            .state
+            .filtreApi
+            .map((elt, i) => { < CardPute
+                height = {
+                    elt.height
+                }
+                name = {
+                    elt.name
+                }
+                eyeColor = {
+                    elt.eyeColor
+                }
+                image = {
+                    elt.image
+                }
+                count = {
+                    this.augmenter
+                } />
+            });
 
-                </Container>
-            </div>
+        return page2.length > 0
+            ? (
 
-        );
+                <div>
+                    <h1>Choose your meat</h1>
+                    <CheckBox maj={this.update} pression={this.tri}/> {page2[this.state.compteur]}
+                </div>
+            )
+            : (
+                <div>
+                    <h1>Choose your meat</h1>
+                    <CheckBox maj={this.update} pression={this.tri}/> {page1[this.state.compteur]}
+                </div>
+            );
     }
 }
-
 export default Search;
