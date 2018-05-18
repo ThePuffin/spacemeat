@@ -122,7 +122,4 @@ class Search extends Component {
             );
     }
 }
-<<<<<<< HEAD
 export default Search;
-=======
->>>>>>> 459bddf5a3cd4c96701e78dc2ae60734c56df277
