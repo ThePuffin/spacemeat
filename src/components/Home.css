@@ -1,24 +1,34 @@
 .card_body {
-  text-align: center;
-  padding-top: 0 !important;
+    text-align: center;
+    padding-top: 0 !important;
 }
 
 .prenom {
-  font-size: 2rem;
-  margin: 0.5rem;
+    font-size: 2rem;
+    margin: 0.5rem;
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
 }
 
 .detail {
-  margin-bottom: 1rem !important;
+    margin-bottom: 1rem !important;
 }
 
 .identifiant {
-  text-align: center;
+    text-align: center;
 }
+
 .cardBox {
-  position: relative;
+    position: relative;
+}
+
+.cardIMG {
+    height: 370px;
+    overflow: hidden;
+}
+
+.ultimate {
+    margin-right: 10% !important;
 }

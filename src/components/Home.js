@@ -15,6 +15,7 @@ import {
 import { Link } from "react-router-dom";
 import "./Home.css";
 import Badge from "./Badge";
+import Fond from "./GIF/old.jpg";
 import BoutonOui from "./boutons/BoutonOui";
 import BoutonNon from "./boutons/BoutonNon";
 
@@ -82,7 +83,10 @@ class Home extends Component {
         <div className="identifiant">Yaa-yaah CHEWIE!</div>
         <h1>Here is your local meat</h1>
         <Card>
-          <CardImg top width="100%" src={page1.image} alt="Card image cap" />
+          <div className="cardIMG">
+            <CardImg top width="100%" src={page1.image} alt="Card image cap" />
+          </div>
+
           <CardBody className="card_body">
             <CardTitle className="prenom">
               {page1.name.split(" ").shift()}
@@ -99,11 +103,14 @@ class Home extends Component {
         </Card>
       </div>
     ) : (
-      <Link to="./Machfinallyultime">
-        <Button className="ultimate">
-          Pas Terrible? Tente l'Ultimate Matching..
-        </Button>
-      </Link>
+      <div>
+        <img src={Fond} className="imgg" alt="logo" />
+        <Link to="./Machfinallyultime">
+          <Button className="ultimate">
+            Pas Terrible? Tente l'Ultimate Matching..
+          </Button>
+        </Link>
+      </div>
     );
   }
 }
